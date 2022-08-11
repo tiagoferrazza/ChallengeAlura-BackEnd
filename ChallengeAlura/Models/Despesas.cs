@@ -13,5 +13,19 @@ namespace ChallengeAlura.Models
         public double Valor { get; set; }
         [Required]
         public DateTime Data { get; set; }
+        public Categorias Categoria {get;set;}
+
+        public enum Categorias
+        {
+            None,
+            Alimentação,
+            Saúde,
+            Moradia,
+            Transporte,
+            Educação,
+            Lazer,
+            Imprevistos,
+            Outras
+        }
     }
 }

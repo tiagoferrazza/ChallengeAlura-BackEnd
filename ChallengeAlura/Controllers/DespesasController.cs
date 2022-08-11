@@ -65,6 +65,9 @@ namespace ChallengeAlura.Controllers
                 return Problem("ATENÇÃO: Receita duplicada no mesmo mês!");
             }
 
+            if (despesas.Categoria == Despesas.Categorias.None)
+                despesas.Categoria = Despesas.Categorias.Outras;
+
             _context.Entry(despesas).State = EntityState.Modified;
 
             try
@@ -100,6 +103,9 @@ namespace ChallengeAlura.Controllers
             {
                 return Problem("ATENÇÃO: Receita duplicada no mesmo mês!");
             }
+
+            if (despesas.Categoria == Despesas.Categorias.None)
+                despesas.Categoria = Despesas.Categorias.Outras;
 
             _context.Despesas.Add(despesas);
             await _context.SaveChangesAsync();
